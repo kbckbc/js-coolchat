@@ -1,0 +1,27 @@
+{
+  "name": "multi-room-chat",
+  "version": "1.0.0",
+  "description": "multi-room-chat",
+  "main": "multi_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse330-fall-2022/module6-group-module6-501026.git"
+  },
+  "author": "Byeongchan Gwak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse330-fall-2022/module6-group-module6-501026/issues"
+  },
+  "homepage": "https://github.com/cse330-fall-2022/module6-group-module6-501026#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "mime": "^3.0.0",
+    "socket.io": "^4.5.3"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.5"
+  }
+}

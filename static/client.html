@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+   <title>Cool Multi Chat v1.0</title>
+   
+   <link rel="stylesheet" href="chat.css">
+   <script src="/socket.io/socket.io.js"></script>    
+   <script src="chat.js"></script>   
+   </head>
+
+   <body class="container">
+      <!-- UserInfo, for a user information. mainly socketid -->
+      <div id="divUserInfo" hidden>
+         <div class="grid">
+            <div><input type="text" id="inputSocketId" ></div>
+            <div><input type="text" id="inputToken" ></div>
+         </div>
+      </div>
+
+
+      <!-- Login, for login, logout -->
+      <div>
+         <div id="divLogin">
+            <article>
+               <h2 class="center"><a href="">Cool Multi Chat v1.0</a></h2>
+               <div class="center">
+                  <img src="chat.jpg" alt="The site main image looks like chat ballon">
+               </div>
+               <br>
+               <form action="javascript:btnLogin()" >
+                     <label for="inputUsername">
+                        Nickname
+                        <input type="text" id="inputUsername" maxlength="32" pattern="[\w\d]+" title="Only numbers and characters!" required>
+                     </label>
+                  <div><input type="submit" value="Login" ></div>
+               </form>
+            </article>
+         </div>
+
+      </div>
+
+      <!-- MainLobby, for waiting list and lobby chat -->
+      <div id="divMain" hidden>
+         <article id="articleMain">
+
+         <div id="divLogout" hidden>
+            <form>
+               <nav>
+                  <ul>
+                     <li><img src="chat.jpg" class="small_icon" alt="The site main image looks like chat ballon"></li>
+                  </ul>
+                  <ul>
+                     <li><strong>Hello, <mark><span id="spanLoggedUsername" contenteditable></span></mark> Enjoy your chat with others!</strong></li>
+                     <li><a href="javascript:btnLogout()" role="button">Logout</a></li>
+                  </ul>
+                  </nav>
+
+            </form>         
+         </div>
+
+         <div id="divMainLobby">
+            <h3><code>Main Lobby</code></h3>
+            <ul id="listWaitingList" class="medium_list"></ul>
+            <h5>Lobby Messages<sub> for everyone</sub></h5>
+            <div class="chat_parent">
+               <ul id="listLobbyMsg" class="chat_list"></ul>
+            </div>
+            <form action="javascript:btnSendLobbyMsg()">
+               <div class="grid">
+                  <div><input type="text" id="inputLobbyMsg" maxlength="256" pattern="[,()!_~.?\w\d\s]+" title="Only numbers and characters and some putuations!" required></div>
+                  <div><input type="submit" value="Send"></div>
+               </div>
+            </form>   
+         </div>      
+
+         <!-- RoomList, for create chat room -->
+         <div id="divRoomList">
+            <h3><code>Room List</code></h3>
+            <ul id="listRooms" class="medium_list"></ul>
+            <form action="javascript:btnCreateRoom()">
+               <div class="grid">
+                  <label for="inputRoomName">
+                     Room name
+                     <input type="text" id="inputRoomName" maxlength="32" pattern="[\w\d]+" title="Only numbers and characters!" required>
+                  </label>
+                  <label for="inputRoomPassword">
+                     Room password(optional)
+                     <input type="password" id="inputRoomPassword" maxlength="16" pattern="[\w\d]+" title="Only numbers and characters!" >
+                  </label>
+               </div>
+               <input type="submit" value="Create room">
+            </form>
+         </div>      
+
+         <!-- ChatRoom, for a joined chatting room -->
+         <div id="divChatRoom" hidden>
+            
+            <nav>
+               <ul>
+                  <li><h3><code>Chat Room: <span id="spanSelectedChatRoomName"></span></code></h3></li>
+               </ul>
+               <ul>
+                  <li><a href="javascript:btnLeaveChatRoom()" >Leave room</a></li>
+               </ul>
+            </nav>
+             
+             
+
+            <div class="grid">
+               <div>
+                  <h5>Joined Users</h5>
+                  <ul id="listChatRoomJoinedUsers" class="small_list"></ul>
+
+               </div>
+               <div>
+                  <h5>Banned Users</h5>
+                  <ul id="listChatRoomBannedUsers" class="small_list"></ul>
+               </div>
+            </div>
+            
+            <h5>Messages<sub> for the room</sub></h5>
+            <ul id="listChatRoomMsg" class="chat_list"></ul>
+            <form action="javascript:btnSendChatRoomMsg()">
+               <div class="grid">
+                  <div><select id="selectChatRoomReceiver"></select></div>
+                  <div><input type="text" id="inputChatRoomMsg" maxlength="256" pattern="[,()!_~.?\w\d\s]+" title="Only numbers and characters and some putuations!" required></div>
+                  <div><input type="submit" value="Send"></div>
+               </div>
+            </form>
+         </div>  
+         </article>    
+      </div>
+   </body>
+</html>
+
