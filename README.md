@@ -24,9 +24,11 @@
 
 
 ## How to run this project
-+ Run the chat server: node multi_server.js
-+ Connect to a page: http://localhost:3456
-+ Enjoy chatting!
+1. Clone this project : git clone ...
+2. Install node packages : npm i
+3. Run this app : node multi_server.js
+4. Connect to a page: http://localhost:3456
+5. Enjoy chatting!
 
 ## User info
 + No sign up is needed
