@@ -118,7 +118,7 @@ io.sockets.on("connection", function (socket) {
         return reg.test(input);
     }
     function regContent(input) {
-        let reg = /^[,()!_~.?\w\d\s]+$/;
+        let reg = /^[,!.?\w\d\s]+$/;
         return reg.test(input);
     }
     // Escape output
